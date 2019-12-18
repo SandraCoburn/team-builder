@@ -13,7 +13,6 @@ function App() {
     }
   ]);
 
-  let teamMembers = [];
   const addNewMember = member => {
     const newMember = {
       id: Date.now(),
@@ -26,7 +25,8 @@ function App() {
 
   return (
     <div className="App">
-      <Form />
+      <h1>Team </h1>
+      <Form addNewMember={addNewMember} />
       <Member members={members} />
     </div>
   );
