@@ -4,15 +4,49 @@ import Member from "./Member";
 import "./App.css";
 
 function App() {
-  const [members, setMembers] = useState([
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    role: ""
+  });
+
+  //Add list of team members
+  let membersList = [
     {
       id: 1,
+      name: "Jocelyn Moreno",
+      email: "Jocelyn@coburn.com",
+      role: "Project Manager"
+    },
+    {
+      id: 2,
+      name: "Eliott Moreno",
+      email: "eliottMor@coburn.com",
+      role: "Project Engineer"
+    },
+    {
+      id: 3,
       name: "Sean Coburn",
       email: "SeanCoburn@coburn.com",
       role: "Project Engineer"
+    },
+    {
+      id: 4,
+      name: "Jackie Coburn",
+      email: "JackieCoburn@coburn.com",
+      role: "Project Engineer"
+    },
+    {
+      id: 5,
+      name: "JRyan Coburn",
+      email: "Jryan@coburn.com",
+      role: "Web Developer"
     }
-  ]);
+  ];
+  //Declare state property for memebers list
+  const [members, setMembers] = useState(membersList);
 
+  //Add a new member to members list
   const addNewMember = member => {
     const newMember = {
       id: Date.now(),
@@ -22,12 +56,28 @@ function App() {
     };
     setMembers([...members, newMember]);
   };
+  //Edit member's list
+  const memberToEdit = member => {
+    const editMember = {
+      id: Date.now(),
+      name: member.name,
+      email: member.email,
+      role: member.role
+    };
+    setForm(editMember);
+    console.log(editMember);
+  };
 
   return (
     <div className="App">
-      <h1>Team </h1>
-      <Form addNewMember={addNewMember} />
-      <Member members={members} />
+      <h1>Team Members</h1>
+      <Form
+        addNewMember={addNewMember}
+        memberToEdit={memberToEdit}
+        form={form}
+        setForm={setForm}
+      />
+      <Member members={members} memberToEdit={memberToEdit} />
     </div>
   );
 }

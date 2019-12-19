@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Form = props => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    role: ""
-  });
-
+  const form = props.form;
+  const setForm = props.setForm;
   const handleChanges = event => {
     setForm({
       ...form,

@@ -8,6 +8,7 @@ const Member = props => {
           <h2>{member.name}</h2>
           <p>Email: {member.email}</p>
           <p>Role: {member.role}</p>
+          <button onClick={() => props.memberToEdit(member)}>Edit</button>
         </div>
       ))}
     </div>
