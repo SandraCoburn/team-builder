@@ -1,6 +1,7 @@
 import React from "react";
 
 const Form = props => {
+  const isEditing = props.isEditing;
   const form = props.form;
   const setForm = props.setForm;
   const handleChanges = event => {
@@ -15,6 +16,15 @@ const Form = props => {
     props.addNewMember(form);
     setForm({ name: "", email: "", role: "" });
   };
+  function editMember() {
+
+    
+  // filter or map and find the member you are editing from members
+  // member = ...member
+  // edit the member
+  // put it back into the members array.
+  isEditing = false
+  }
 
   return (
     <div>

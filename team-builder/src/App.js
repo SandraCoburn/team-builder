@@ -45,6 +45,7 @@ function App() {
   ];
   //Declare state property for memebers list
   const [members, setMembers] = useState(membersList);
+  const isEditing = false;
 
   //Add a new member to members list
   const addNewMember = member => {
@@ -65,6 +66,7 @@ function App() {
       role: member.role
     };
     setForm(editMember);
+    isEditing = true;
     console.log(editMember);
   };
 
@@ -76,6 +78,8 @@ function App() {
         memberToEdit={memberToEdit}
         form={form}
         setForm={setForm}
+        isEditing={isEditing}
+        members={members}
       />
       <Member members={members} memberToEdit={memberToEdit} />
     </div>
